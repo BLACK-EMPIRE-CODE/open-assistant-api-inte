@@ -90,7 +90,7 @@ services:
       LOG_LEVEL: DEBUG
 
       # celery
-      CELERY_BROKER_URL: redis://:123456@redis:6379/1
+      CELERY_BROKER_URL: redis://:123456@redis:63792/1
       CELERY_WORKERS: 20
 
       # database
