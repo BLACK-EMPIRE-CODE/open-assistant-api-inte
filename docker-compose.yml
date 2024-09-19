@@ -193,7 +193,7 @@ services:
     volumes:
       - ./volumes/redis/data:/data
     ports:
-      - '6379:6379'
+      - '63792:6379'
     command: redis-server --requirepass 123456
     networks:
       - network_one
