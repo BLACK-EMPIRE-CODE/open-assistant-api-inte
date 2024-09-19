@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     DB_HOST: str = "127.0.0.1"
     DB_PORT: int = 3306
     DB_DATABASE: str = "open_assistant"
-    DB_USER: str = "root"
+    DB_USER: str = "open_assistant"
     DB_PASSWORD: str = "123456"
     DB_POOL_SIZE: int = 20
     DB_POOL_RECYCLE: int = 3600

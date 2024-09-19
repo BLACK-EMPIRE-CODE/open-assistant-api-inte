@@ -12,5 +12,5 @@ FROM nginx:alpine
 COPY ./deploy/nginx/default_dev.conf /etc/nginx/conf.d/default.conf
 COPY --from=ui-build /app/dist /usr/share/nginx/html
 
-EXPOSE 80
+EXPOSE 8088
 CMD ["nginx", "-g", "daemon off;"]

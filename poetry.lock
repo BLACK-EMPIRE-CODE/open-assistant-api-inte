@@ -39,7 +39,7 @@ files = [
     {file = "aiohttp-3.10.3-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:f817a54059a4cfbc385a7f51696359c642088710e731e8df80d0607193ed2b73"},
     {file = "aiohttp-3.10.3-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:8542c9e5bcb2bd3115acdf5adc41cda394e7360916197805e7e32b93d821ef93"},
     {file = "aiohttp-3.10.3-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:671efce3a4a0281060edf9a07a2f7e6230dca3a1cbc61d110eee7753d28405f7"},
-    {file = "aiohttp-3.10.3-cp310-cp310-musllinux_1_2_ppc64le.whl", hash = "sha256:0974f3b5b0132edcec92c3306f858ad4356a63d26b18021d859c9927616ebf27"},
+    {file = "aiohttp-3.10.3-cp310-cp310-musllinux_1_2_ppc64le.whl", hash = "sha256:0974f3b5b0132edcec92c3307f858ad4356a63d26b18021d859c9927616ebf27"},
     {file = "aiohttp-3.10.3-cp310-cp310-musllinux_1_2_s390x.whl", hash = "sha256:44bb159b55926b57812dca1b21c34528e800963ffe130d08b049b2d6b994ada7"},
     {file = "aiohttp-3.10.3-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:6ae9ae382d1c9617a91647575255ad55a48bfdde34cc2185dd558ce476bf16e9"},
     {file = "aiohttp-3.10.3-cp310-cp310-win32.whl", hash = "sha256:aed12a54d4e1ee647376fa541e1b7621505001f9f939debf51397b9329fd88b9"},

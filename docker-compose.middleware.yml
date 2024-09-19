@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  db:
+  db_open_assistant:
     image: mysql:5.7.44
     # platform: linux/x86_64
     restart: always
     volumes:
       - ./volumes/mysql/data:/var/lib/mysql
     ports:
-      - '3306:3306'
+      - '3308:3306'
     environment:
       MYSQL_ROOT_PASSWORD: 'open-assistant-api@2023'
       MYSQL_USER: open_assistant
@@ -16,6 +16,8 @@ services:
       MYSQL_DATABASE: open_assistant
       # TZ: Asia/Shanghai
     command: [ 'mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
+    networks:
+      - network_one
     healthcheck:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       timeout: 20s
@@ -42,7 +44,7 @@ services:
     volumes:
       - ./volumes/minio/data:/minio_data
     ports:
-      - '9001:9001'
+      - '9091:9001'
       - '9000:9000'
     environment:
       MINIO_ACCESS_KEY: minioadmin
@@ -70,3 +72,6 @@ services:
       /usr/bin/mc mb -p minio/$${BUCKET_NAME};
       exit 0;
       "
+
+networks:
+  network_one:

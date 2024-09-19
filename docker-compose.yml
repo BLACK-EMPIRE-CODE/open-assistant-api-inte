@@ -30,7 +30,7 @@ services:
       MIGRATION_ENABLED: true
 
       # database
-      DB_HOST: db
+      DB_HOST: db_open_assistant
       DB_PORT: 3306
       DB_DATABASE: open_assistant
       DB_USER: open_assistant
@@ -45,7 +45,7 @@ services:
       REDIS_PASSWORD: 123456
 
       # s3 storage
-      S3_ENDPOINT: http://minio:9000
+      S3_ENDPOINT: http://minio:9090
       S3_BUCKET_NAME: oas
       S3_ACCESS_KEY: minioadmin
       S3_SECRET_KEY: minioadmin
@@ -64,8 +64,11 @@ services:
       # secret
       APP_AES_ENCRYPTION_KEY: 7700b2f9c8dd982dfaddf8b47a92f1d900507ee8ac335f96a64e9ca0f018b195
 
+    networks:
+      - network_one
+
     depends_on:
-      - db
+      - db_open_assistant
       - redis
       - minio
 
@@ -91,7 +94,7 @@ services:
       CELERY_WORKERS: 20
 
       # database
-      DB_HOST: db
+      DB_HOST: db_open_assistant
       DB_PORT: 3306
       DB_DATABASE: open_assistant
       DB_USER: open_assistant
@@ -106,15 +109,15 @@ services:
       REDIS_PASSWORD: 123456
 
       # s3 storage
-      S3_ENDPOINT: http://minio:9000
+      S3_ENDPOINT: http://minio:9090
       S3_BUCKET_NAME: oas
       S3_ACCESS_KEY: minioadmin
       S3_SECRET_KEY: minioadmin
       S3_REGION: us-east-1
 
       # llm
-      OPENAI_API_BASE:
-      OPENAI_API_KEY:
+      OPENAI_API_BASE: http://localhost:3008/v1
+      OPENAI_API_KEY: sk-zlYxsQ5osABMfgAR0c71D8BaB6E14d5cB54e6728B01b7a87
       LLM_MAX_STEP: 25
 
       # tool
@@ -136,11 +139,11 @@ services:
       R2R_PASSWORD: change_me_immediately
       R2R_SEARCH_LIMIT: 10
 
-       # secret
+      # secret
       APP_AES_ENCRYPTION_KEY: 7700b2f9c8dd982dfaddf8b47a92f1d900507ee8ac335f96a64e9ca0f018b195
 
     depends_on:
-      - db
+      - db_open_assistant
       - redis
       - minio
 
@@ -149,19 +152,21 @@ services:
     restart: always
     build:
       context: ./playground-ui
+    networks:
+      - network_one
     ports:
-      - "80:80"
+      - "8088:80"
     depends_on:
       - api
 
-  db:
+  db_open_assistant:
     image: mysql:5.7.44
     platform: linux/x86_64
     restart: always
     volumes:
       - ./volumes/mysql/data:/var/lib/mysql
     ports:
-      - '3306:3306'
+      - '3308:3306'
     environment:
       MYSQL_ROOT_PASSWORD: 'open-assistant-api@2023'
       MYSQL_USER: open_assistant
@@ -174,6 +179,8 @@ services:
         '--character-set-server=utf8mb4',
         '--collation-server=utf8mb4_unicode_ci'
       ]
+    networks:
+      - network_one
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       timeout: 20s
@@ -188,6 +195,8 @@ services:
     ports:
       - '6379:6379'
     command: redis-server --requirepass 123456
+    networks:
+      - network_one
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
 
@@ -198,8 +207,8 @@ services:
     volumes:
       - ./volumes/minio/data:/minio_data
     ports:
-      - '9001:9001'
-      - '9000:9000'
+      - '9091:9001'
+      - '9090:9000'
     environment:
       MINIO_ACCESS_KEY: minioadmin
       MINIO_SECRET_KEY: minioadmin
@@ -231,4 +240,7 @@ services:
       /usr/bin/mc mb -p minio/$${BUCKET_NAME};
       exit 0;
       "
+
+networks:
+  network_one:
 

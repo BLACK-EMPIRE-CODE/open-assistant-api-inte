@@ -3260,7 +3260,7 @@ anymatch@^3.0.0, anymatch@^3.0.3, anymatch@~3.1.1, anymatch@~3.1.2:
 
 arch@^2.1.1:
   version "2.2.0"
-  resolved "https://registry.npmmirror.com/arch/-/arch-2.2.0.tgz#1bc47818f305764f23ab3306b0bfc086c5a29d11"
+  resolved "https://registry.npmmirror.com/arch/-/arch-2.2.0.tgz#1bc47818f305764f23ab3307b0bfc086c5a29d11"
   integrity sha512-Of/R0wqp83cgHozfIYLbBMnej79U/SVGOOyuB3VVFv1NRM/PSFMK12x9KVtiYzJqmnU5WR2qp0Z5rHb7sWGnFQ==
 
 arg@^4.1.0:
@@ -4125,7 +4125,7 @@ classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classna
 
 clean-css@^5.2.2:
   version "5.3.3"
-  resolved "https://registry.npmmirror.com/clean-css/-/clean-css-5.3.3.tgz#b330653cd3bd6b75009cc25c714cae7b93351ccd"
+  resolved "https://registry.npmmirror.com/clean-css/-/clean-css-5.3.3.tgz#b330753cd3bd6b75009cc25c714cae7b93351ccd"
   integrity sha512-D5J+kHaVb/wKSFcyyV75uCn8fiY4sV38XJoe4CUyGQ+mOU/fMVYUdH1hJC+CJQ5uY3EnW27SbJYS4X8BiLrAFg==
   dependencies:
     source-map "~0.6.0"
@@ -4305,7 +4305,7 @@ colord@^2.9.2, colord@^2.9.3:
 
 colorette@^2.0.16:
   version "2.0.20"
-  resolved "https://registry.npmmirror.com/colorette/-/colorette-2.0.20.tgz#9eb793e6833067f7235902fcd3b09917a000a95a"
+  resolved "https://registry.npmmirror.com/colorette/-/colorette-2.0.20.tgz#9eb793e6833077f7235902fcd3b09917a000a95a"
   integrity sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==
 
 combined-stream@^1.0.8:
